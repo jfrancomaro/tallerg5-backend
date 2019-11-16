@@ -30,11 +30,23 @@ public class AlumnoProgramaTramiteServiceImpl implements IAlumnoProgramaTramiteS
 		return alumnoProgramaTramiteDAO.getAlumnoProgramaTramiteIdByCodAlumno(codAlumno);
 	}
 
-	/*@Override
-	public void addAlumnoProgramaTramite(AlumnoPrograma alumnoPrograma) {
+	@Override
+	public AlumnoProgramaTramite addAlumnoProgramaTramite(AlumnoProgramaTramite alumnoProgramaTramite) {
+		return alumnoProgramaTramiteDAO.addAlumnoProgramaTramite(alumnoProgramaTramite);
+	}
+
+	@Override
+	public void updateAlumnoProgramaTramite(AlumnoProgramaTramite alumnoProgramaTramite) {
 		// TODO Auto-generated method stub
 		
-	}*/
+	}
+
+	@Override
+	public void deleteAlumnoProgramaTramite(Integer idApt) {
+		// TODO Auto-generated method stub
+		
+	}
+
 	
 	
 }

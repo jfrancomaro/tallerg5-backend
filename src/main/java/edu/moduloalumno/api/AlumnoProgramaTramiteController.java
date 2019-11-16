@@ -9,7 +9,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -89,4 +92,22 @@ public class AlumnoProgramaTramiteController {
 		return new ResponseEntity<List<AlumnoProgramaTramite>>(list, HttpStatus.OK);
 	}
 	
+	@RequestMapping(value = "/add", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<AlumnoProgramaTramite> addAlumnoProgramaTramite(@RequestBody AlumnoProgramaTramite alumnoProgramaTramite) {
+
+		logger.info("> addAlumnoProgramaTramite [AlumnoProgramaTramite]");
+		try {
+			service.addAlumnoProgramaTramite(alumnoProgramaTramite);
+		} catch (Exception e) {
+			return new ResponseEntity<AlumnoProgramaTramite>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+
+		logger.info("> addAlumnoProgramaTramite [AlumnoProgramaTramite]");
+		return new ResponseEntity<AlumnoProgramaTramite>(HttpStatus.CREATED);
+	}
+	@PostMapping("/insertar")
+	public AlumnoProgramaTramite addAlumnoProgramaTramite(@RequestBody AlumnoProgramaTramite alumnoProgramaTramite,
+			Errors error) {
+		return service.addAlumnoProgramaTramite(alumnoProgramaTramite);
+	}
 }

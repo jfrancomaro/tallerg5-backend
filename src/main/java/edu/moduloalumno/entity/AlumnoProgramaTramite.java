@@ -6,11 +6,11 @@ import java.sql.Date;
 public class AlumnoProgramaTramite implements Serializable{
 	
     private static final long serialVersionUID = 1L;
-    private int idApt;
+    private Integer idApt;
 	private String codAlumno;
-	private int idPrograma;
-    private int idTipoTramite;
-    private int idApb;
+	private Integer idPrograma;
+    private Integer idTipoTramite;
+    private Integer idApb;
     private String nExpediente;
     private String anioExpediente;
     private Date fechaExpediente;
@@ -30,11 +30,11 @@ public class AlumnoProgramaTramite implements Serializable{
     private Double importeOtros;
     private Double importeTotal;
 
-    public int getIdApt() {
+    public Integer getIdApt() {
         return idApt;
     }
 
-    public void setIdApt(int idApt) {
+    public void setIdApt(Integer idApt) {
         this.idApt = idApt;
     }
 
@@ -46,19 +46,19 @@ public class AlumnoProgramaTramite implements Serializable{
         this.codAlumno = codAlumno;
     }
 
-    public int getIdPrograma() {
+    public Integer getIdPrograma() {
         return idPrograma;
     }
 
-    public void setIdPrograma(int idPrograma) {
+    public void setIdPrograma(Integer idPrograma) {
         this.idPrograma = idPrograma;
     }
 
-    public int getIdTipoTramite() {
+    public Integer getIdTipoTramite() {
         return idTipoTramite;
     }
 
-    public void setIdTipoTramite(int idTipoTramite) {
+    public void setIdTipoTramite(Integer idTipoTramite) {
         this.idTipoTramite = idTipoTramite;
     }
 

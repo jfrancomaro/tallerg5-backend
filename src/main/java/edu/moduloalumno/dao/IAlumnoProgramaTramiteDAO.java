@@ -12,7 +12,7 @@ public interface IAlumnoProgramaTramiteDAO {
 
 	public List<AlumnoProgramaTramite> getAlumnoProgramaTramiteIdByCodAlumno(String codAlumno);
 
-	public void addAlumnoProgramaTramite(AlumnoProgramaTramite alumnoProgramaTramite);
+	public AlumnoProgramaTramite addAlumnoProgramaTramite(AlumnoProgramaTramite alumnoProgramaTramite);
 
 	public void updateAlumnoProgramaTramite(AlumnoProgramaTramite alumnoProgramaTramite);
 

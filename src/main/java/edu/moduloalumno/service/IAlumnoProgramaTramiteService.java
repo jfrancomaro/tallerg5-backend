@@ -16,10 +16,10 @@ public interface IAlumnoProgramaTramiteService {
 	
 	//List<AlumnoPrograma> getAlumnoProgramaByDni(String codAlumno);
 
-	//public void addAlumnoProgramaTramite(AlumnoPrograma alumnoPrograma);
+	public AlumnoProgramaTramite addAlumnoProgramaTramite(AlumnoProgramaTramite alumnoProgramaTramite);
 
-	//public void updateAlumnoProgramaTramite(AlumnoPrograma alumnoPrograma);
+	public void updateAlumnoProgramaTramite(AlumnoProgramaTramite alumnoProgramaTramite);
 
-	//public void deleteAlumnoProgramaTramite(String codAlumno);
+	public void deleteAlumnoProgramaTramite(Integer idApt);
 	
 }
