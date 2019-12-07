@@ -31,8 +31,8 @@ public class AlumnoProgramaTramiteServiceImpl implements IAlumnoProgramaTramiteS
 	}
 
 	@Override
-	public AlumnoProgramaTramite addAlumnoProgramaTramite(AlumnoProgramaTramite alumnoProgramaTramite) {
-		return alumnoProgramaTramiteDAO.addAlumnoProgramaTramite(alumnoProgramaTramite);
+	public void addAlumnoProgramaTramite(AlumnoProgramaTramite alumnoProgramaTramite) {
+		alumnoProgramaTramiteDAO.addAlumnoProgramaTramite(alumnoProgramaTramite);
 	}
 
 	@Override

@@ -20,7 +20,7 @@ public class ProgramaDAOImpl implements IProgramaDAO {
 
 	@Override
 	public Programa getProgramaById(int idPrograma) {
-		String sql = "SELECT id_programa, nom_programa, sigla_programa, vigencia_programa, id_tip_grado FROM programa WHERE id_programa = ?";
+		String sql = "SELECT id_programa, nom_programa, sigla_programa, id_tip_grado,vigencia_programa,n_prioridad FROM programa WHERE id_programa = ?";
 		RowMapper<Programa> rowMapper = new BeanPropertyRowMapper<Programa>(Programa.class);
 		Programa programa = jdbcTemplate.queryForObject(sql, rowMapper, idPrograma);
 		return programa;
@@ -28,8 +28,7 @@ public class ProgramaDAOImpl implements IProgramaDAO {
 
 	@Override
 	public List<Programa> getAllProgramas() {
-		String sql = "SELECT id_programa, nom_programa, sigla_programa, vigencia_programa, id_tip_grado FROM programa";
-		
+		String sql = "SELECT id_programa, nom_programa, sigla_programa, id_tip_grado,vigencia_programa,n_prioridad FROM programa";
 		RowMapper<Programa> rowMapper = new ProgramaRowMapper();
 		return this.jdbcTemplate.query(sql, rowMapper);
 	}

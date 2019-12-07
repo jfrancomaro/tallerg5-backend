@@ -7,28 +7,29 @@ public class AlumnoProgramaTramite implements Serializable{
 	
     private static final long serialVersionUID = 1L;
     private Integer idApt;
-	private String codAlumno;
+	private String 	codAlumno;
 	private Integer idPrograma;
+	private String  nomPrograma;
     private Integer idTipoTramite;
     private Integer idApb;
-    private String nExpediente;
-    private String anioExpediente;
-    private Date fechaExpediente;
-    private String nTramite;
-    private String anioTramite;
-    private Date  fechaEmision;
-    private String usuarioEmision;
-    private String nOficio;
-    private String anioOficio;
-    private Date  fechaOficio;
-    private Double importeOficio;
-    private Double importeMatricula;
-	private Double importeMatriculaAd;
-    private Double importeMatriculaEpg;
-    private Double importeEnsenanza;
-    private Double importeRepitencia;
-    private Double importeOtros;
-    private Double importeTotal;
+    private String 	nExpediente;
+    private String 	anioExpediente;
+    private Date 	fechaExpediente;
+    private String 	nTramite;
+    private String 	anioTramite;
+    private Date  	fechaEmision;
+    private String 	usuarioEmision;
+    private String 	nOficio;
+    private String 	anioOficio;
+    private Date  	fechaOficio;
+    private Double 	importeOficio;
+    private Double 	importeMatricula;
+	private Double 	importeMatriculaAd;
+    private Double 	importeMatriculaEpg;
+    private Double 	importeEnsenanza;
+    private Double 	importeRepitencia;
+    private Double 	importeOtros;
+    private Double 	importeTotal;
 
     public Integer getIdApt() {
         return idApt;
@@ -212,6 +213,14 @@ public class AlumnoProgramaTramite implements Serializable{
 
 	public void setAnioOficio(String anioOficio) {
 		this.anioOficio = anioOficio;
+	}
+
+	public String getNomPrograma() {
+		return nomPrograma;
+	}
+
+	public void setNomPrograma(String nomPrograma) {
+		this.nomPrograma = nomPrograma;
 	}
 
     /*@Override

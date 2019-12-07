@@ -16,7 +16,7 @@ public interface IAlumnoProgramaTramiteService {
 	
 	//List<AlumnoPrograma> getAlumnoProgramaByDni(String codAlumno);
 
-	public AlumnoProgramaTramite addAlumnoProgramaTramite(AlumnoProgramaTramite alumnoProgramaTramite);
+	public void addAlumnoProgramaTramite(AlumnoProgramaTramite alumnoProgramaTramite);
 
 	public void updateAlumnoProgramaTramite(AlumnoProgramaTramite alumnoProgramaTramite);
 

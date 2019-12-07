@@ -14,8 +14,9 @@ public class ProgramaRowMapper implements RowMapper<Programa> {
 		programa.setIdPrograma(row.getInt("id_programa"));
 		programa.setNomPrograma(row.getString("nom_programa"));
 		programa.setSiglaPrograma(row.getString("sigla_programa"));
-		programa.setVigenciaPrograma(row.getBoolean("vigencia_programa"));
 		programa.setIdTipGrado(row.getInt("id_tip_grado"));
+		programa.setVigenciaPrograma(row.getBoolean("vigencia_programa"));
+		programa.setNPrioridad(row.getInt("n_prioridad"));
 		return programa;
 	}
 }

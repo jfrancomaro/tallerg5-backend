@@ -25,6 +25,7 @@ public class AlumnoProgramaTramiteDAOImpl implements IAlumnoProgramaTramiteDAO{
 		String sql = "SELECT apt.id_apt"
 				+ "        , apt.cod_alumno"
 				+ "        , apt.id_programa"
+				+ "		   , p.nom_programa"
 				+ "		   , apt.id_tipotramite"
 				+ "		   , apt.id_apb"
 				+ "        , apt.n_expediente"
@@ -45,7 +46,8 @@ public class AlumnoProgramaTramiteDAOImpl implements IAlumnoProgramaTramiteDAO{
 				+ "        , apt.importe_repitencia"
 				+ "		   , apt.importe_otros"
 				+ "        , apt.importe_total"
-				+ " FROM alumno_programa_tramite apt";
+				+ " FROM alumno_programa_tramite apt"
+				+ " inner join programa p on p.id_programa = apt.id_programa";
 		RowMapper<AlumnoProgramaTramite> rowMapper =  new AlumnoProgramaTramiteRowMapper();
 		return this.jdbcTemplate.query(sql, rowMapper);
 	}
@@ -110,7 +112,7 @@ public class AlumnoProgramaTramiteDAOImpl implements IAlumnoProgramaTramiteDAO{
 		return this.jdbcTemplate.query(sql, rowMapper, codAlumno);
 	}
 
-	@Override
+	/*@Override
 	public AlumnoProgramaTramite addAlumnoProgramaTramite(AlumnoProgramaTramite alumnoProgramaTramite) {
 
 		// Add alumnoProgramaTramite
@@ -157,8 +159,28 @@ public class AlumnoProgramaTramiteDAOImpl implements IAlumnoProgramaTramiteDAO{
 		// get alumnoAlumnoPrograma
 		return alumnoProgramaTramiteNew;
 		
-	}
+	}*/
 
+	@Override
+	public void addAlumnoProgramaTramite(AlumnoProgramaTramite alumnoProgramaTramite) {
+
+		// Add alumnoProgramaTramite
+		String sql = "INSERT INTO alumno_programa_tramite("+
+				" cod_alumno, id_programa, id_tipotramite, id_apb, n_expediente, anio_expediente, fecha_expediente, n_tramite, anio_tramite, fecha_emision, usuario_emision, n_oficio, anio_oficio, fecha_oficio, importe_oficio, importe_matricula, importe_matricula_ad, importe_matricula_epg, importe_ensenanza, importe_repitencia, importe_otros, importe_total)"
+				+" VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) ";
+		jdbcTemplate.update(sql,alumnoProgramaTramite.getCodAlumno(),alumnoProgramaTramite.getIdPrograma(),alumnoProgramaTramite.getIdTipoTramite(),alumnoProgramaTramite.getIdApb(),alumnoProgramaTramite.getnExpediente()
+				,alumnoProgramaTramite.getAnioExpediente(),alumnoProgramaTramite.getFechaExpediente(),alumnoProgramaTramite.getnTramite(),alumnoProgramaTramite.getAnioTramite(),alumnoProgramaTramite.getFechaEmision()
+				,alumnoProgramaTramite.getUsuarioEmision(),alumnoProgramaTramite.getnOficio(),alumnoProgramaTramite.getAnioOficio(),alumnoProgramaTramite.getFechaOficio(),alumnoProgramaTramite.getImporteOficio(),alumnoProgramaTramite.getImporteMatricula(), alumnoProgramaTramite.getImporteMatriculaAd()
+				,alumnoProgramaTramite.getImporteMatriculaEpg(),alumnoProgramaTramite.getImporteEnsenanza(), alumnoProgramaTramite.getImporteRepitencia(),alumnoProgramaTramite.getImporteOtros(),alumnoProgramaTramite.getImporteTotal());
+
+		// Fetch alumnoProgramaTramite
+		/*sql = "SELECT apt.id_apt FROM alumno_programa_tramite apt WHERE apt.id_apt = ?";
+		Integer idApt = jdbcTemplate.queryForObject(sql, Integer.class, alumnoProgramaTramite.getIdApt());
+		
+		alumnoProgramaTramite.setIdApt(idApt);*/
+		
+	}
+	
 	@Override
 	public void updateAlumnoProgramaTramite(AlumnoProgramaTramite alumnoProgramaTramite) {
 		// TODO Auto-generated method stub

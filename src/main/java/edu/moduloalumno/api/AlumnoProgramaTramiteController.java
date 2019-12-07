@@ -106,8 +106,8 @@ public class AlumnoProgramaTramiteController {
 		return new ResponseEntity<AlumnoProgramaTramite>(HttpStatus.CREATED);
 	}
 	@PostMapping("/insertar")
-	public AlumnoProgramaTramite addAlumnoProgramaTramite(@RequestBody AlumnoProgramaTramite alumnoProgramaTramite,
+	public void addAlumnoProgramaTramite(@RequestBody AlumnoProgramaTramite alumnoProgramaTramite,
 			Errors error) {
-		return service.addAlumnoProgramaTramite(alumnoProgramaTramite);
+		service.addAlumnoProgramaTramite(alumnoProgramaTramite);
 	}
 }

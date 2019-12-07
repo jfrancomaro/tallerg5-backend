@@ -16,6 +16,7 @@ public class AlumnoProgramaTramiteRowMapper implements RowMapper<AlumnoProgramaT
 		apt.setIdApt(rs.getInt("id_apt"));
 		apt.setCodAlumno(rs.getString("cod_alumno"));
 		apt.setIdPrograma(rs.getInt("id_programa"));
+		apt.setNomPrograma(rs.getString("nom_programa"));
 		apt.setIdTipoTramite(rs.getInt("id_tipotramite"));
 		apt.setIdApb(rs.getInt("id_apb"));
 		apt.setnExpediente(rs.getString("n_expediente"));
