@@ -57,6 +57,7 @@ public class AlumnoProgramaTramiteDAOImpl implements IAlumnoProgramaTramiteDAO{
 		String sql = "SELECT apt.id_apt"
 				+ "        , apt.cod_alumno"
 				+ "        , apt.id_programa"
+				+ "		   , p.nom_programa"
 				+ "		   , apt.id_tipotramite"
 				+ "		   , apt.id_apb"
 				+ "        , apt.n_expediente"
@@ -77,7 +78,9 @@ public class AlumnoProgramaTramiteDAOImpl implements IAlumnoProgramaTramiteDAO{
 				+ "        , apt.importe_repitencia"
 				+ "		   , apt.importe_otros"
 				+ "        , apt.importe_total"
-				+ " FROM alumno_programa_tramite apt WHERE apt.id_apt = ?";
+				+ " FROM alumno_programa_tramite apt "
+				+ " inner join programa p on p.id_programa = apt.id_programa "
+				+ " WHERE apt.id_apt = ?";
 		RowMapper<AlumnoProgramaTramite> rowMapper =  new AlumnoProgramaTramiteRowMapper();
 		return this.jdbcTemplate.query(sql, rowMapper, idApt);
 	}
@@ -87,6 +90,7 @@ public class AlumnoProgramaTramiteDAOImpl implements IAlumnoProgramaTramiteDAO{
 		String sql = "SELECT apt.id_apt"
 				+ "        , apt.cod_alumno"
 				+ "        , apt.id_programa"
+				+ "		   , p.nom_programa"
 				+ "		   , apt.id_tipotramite"
 				+ "		   , apt.id_apb"
 				+ "        , apt.n_expediente"
@@ -107,7 +111,9 @@ public class AlumnoProgramaTramiteDAOImpl implements IAlumnoProgramaTramiteDAO{
 				+ "        , apt.importe_repitencia"
 				+ "		   , apt.importe_otros"
 				+ "        , apt.importe_total"
-				+ " FROM alumno_programa_tramite apt WHERE apt.cod_alumno = ?";
+				+ " FROM alumno_programa_tramite apt "
+				+ " inner join programa p on p.id_programa = apt.id_programa "
+				+ " WHERE apt.cod_alumno = ?";
 		RowMapper<AlumnoProgramaTramite> rowMapper =  new AlumnoProgramaTramiteRowMapper();
 		return this.jdbcTemplate.query(sql, rowMapper, codAlumno);
 	}

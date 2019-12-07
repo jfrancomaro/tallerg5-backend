@@ -11,6 +11,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -52,7 +53,7 @@ public class AlumnoProgramaTramiteController {
 		return new ResponseEntity<List<AlumnoProgramaTramite>>(list, HttpStatus.OK);
 	}
 	
-	@RequestMapping(value = "/leer/id-apt/{idApt}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	/*@RequestMapping(value = "/leer/id-apt/{idApt}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<List<AlumnoProgramaTramite>> getAlumnoProgramaTramiteByIdApt (@PathVariable("idApt") Integer idApt) {
 		logger.info("> getAlumnoProgramaTramiteByIdApt [AlumnoProgramaTramite]");
 
@@ -71,9 +72,9 @@ public class AlumnoProgramaTramiteController {
 
 		logger.info("< getAlumnoProgramaTramiteByIdApt [AlumnoProgramaTramite]");
 		return new ResponseEntity<List<AlumnoProgramaTramite>>(list, HttpStatus.OK);
-	}
+	}*/
 	
-	@RequestMapping(value = "/leer/codigo-alumno/{codAlumno}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	/*@RequestMapping(value = "/leer/codigo-alumno/{codAlumno}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<List<AlumnoProgramaTramite>> getAlumnoProgramaTramiteByCodAlumno(@PathVariable("codAlumno") String codAlumno) {
 		logger.info("> getAlumnoProgramaTramiteByCodAlumno [AlumnoProgramaTramite]");
 
@@ -92,7 +93,7 @@ public class AlumnoProgramaTramiteController {
 
 		logger.info("< getAlumnoProgramaTramiteByCodAlumno [AlumnoProgramaTramite]");
 		return new ResponseEntity<List<AlumnoProgramaTramite>>(list, HttpStatus.OK);
-	}
+	}*/
 	
 	@RequestMapping(value = "/add", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<AlumnoProgramaTramite> addAlumnoProgramaTramite(@RequestBody AlumnoProgramaTramite alumnoProgramaTramite) {
@@ -107,6 +108,19 @@ public class AlumnoProgramaTramiteController {
 		logger.info("> addAlumnoProgramaTramite [AlumnoProgramaTramite]");
 		return new ResponseEntity<AlumnoProgramaTramite>(HttpStatus.CREATED);
 	}
+	
+	@GetMapping("/leer/codigo-alumno/{codAlumno}")
+	public List<AlumnoProgramaTramite> getAlumnoProgramaTramiteByCodAlumno(@PathVariable("codAlumno") String codAlumno) {
+		return service.getAlumnoProgramaTramiteIdByCodAlumno(codAlumno);
+	}
+	
+	@GetMapping("/leer/id-apt/{idApt}")
+	public List<AlumnoProgramaTramite> getAlumnoProgramaTramiteByIdApt(@PathVariable("idApt") Integer idApt) {
+		return service.getAlumnoProgramaTramiteIdByIdApt(idApt);
+	}
+	
+	
+	
 	@PostMapping("/insertar")
 	public void addAlumnoProgramaTramite(@RequestBody AlumnoProgramaTramite alumnoProgramaTramite,
 			Errors error) {
