@@ -16,6 +16,6 @@ public interface IAlumnoProgramaTramiteDAO {
 
 	public void updateAlumnoProgramaTramite(AlumnoProgramaTramite alumnoProgramaTramite);
 
-	public void deleteAlumnoProgramaTramite(String codAlumno);
+	public void deleteAlumnoProgramaTramite(Integer idApt);
 
 }

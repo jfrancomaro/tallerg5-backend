@@ -183,13 +183,42 @@ public class AlumnoProgramaTramiteDAOImpl implements IAlumnoProgramaTramiteDAO{
 	
 	@Override
 	public void updateAlumnoProgramaTramite(AlumnoProgramaTramite alumnoProgramaTramite) {
-		// TODO Auto-generated method stub
 		
+		String sql = "UPDATE alumno_programa_tramite "
+				+ "   SET    cod_alumno = ?"
+				+ "        , id_programa = ?"
+				+ "		   , id_tipotramite = ?"
+				+ "		   , id_apb = ?"
+				+ "        , n_expediente = ?"
+				+ "		   , anio_expediente = ?"
+				+ "		   , fecha_expediente = ?"
+				+ "        , n_tramite = ?"
+				+ "		   , anio_tramite = ?"
+				+ "		   , fecha_emision = ?"
+				+ "        , usuario_emision = ?"
+				+ "		   , n_oficio = ?"
+				+ "		   , anio_oficio = ?"
+				+ "        , fecha_oficio = ?"
+				+ "		   , importe_oficio = ?"
+				+ "		   , importe_matricula = ?"
+				+ "        , importe_matricula_ad = ?"
+				+ "		   , importe_matricula_epg = ?"
+				+ "		   , importe_ensenanza = ?"
+				+ "        , importe_repitencia = ?"
+				+ "		   , importe_otros = ?"
+				+ "        , importe_total = ?"
+				+ " WHERE id_apt = ?";
+		jdbcTemplate.update(sql,alumnoProgramaTramite.getCodAlumno(),alumnoProgramaTramite.getIdPrograma(),alumnoProgramaTramite.getIdTipoTramite(),alumnoProgramaTramite.getIdApb(),alumnoProgramaTramite.getnExpediente()
+				,alumnoProgramaTramite.getAnioExpediente(),alumnoProgramaTramite.getFechaExpediente(),alumnoProgramaTramite.getnTramite(),alumnoProgramaTramite.getAnioTramite(),alumnoProgramaTramite.getFechaEmision()
+				,alumnoProgramaTramite.getUsuarioEmision(),alumnoProgramaTramite.getnOficio(),alumnoProgramaTramite.getAnioOficio(),alumnoProgramaTramite.getFechaOficio(),alumnoProgramaTramite.getImporteOficio(),alumnoProgramaTramite.getImporteMatricula(), alumnoProgramaTramite.getImporteMatriculaAd()
+				,alumnoProgramaTramite.getImporteMatriculaEpg(),alumnoProgramaTramite.getImporteEnsenanza(), alumnoProgramaTramite.getImporteRepitencia(),alumnoProgramaTramite.getImporteOtros(),alumnoProgramaTramite.getImporteTotal(), alumnoProgramaTramite.getIdApt());
+
 	}
 
 	@Override
-	public void deleteAlumnoProgramaTramite(String codAlumno) {
-		// TODO Auto-generated method stub
+	public void deleteAlumnoProgramaTramite(Integer idApt) {
+		String sql = "DELETE FROM alumno_programa_tramite WHERE id_apt = ?";
+		jdbcTemplate.update(sql, idApt);
 		
 	}
 

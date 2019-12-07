@@ -37,13 +37,13 @@ public class AlumnoProgramaTramiteServiceImpl implements IAlumnoProgramaTramiteS
 
 	@Override
 	public void updateAlumnoProgramaTramite(AlumnoProgramaTramite alumnoProgramaTramite) {
-		// TODO Auto-generated method stub
+		alumnoProgramaTramiteDAO.updateAlumnoProgramaTramite(alumnoProgramaTramite);
 		
 	}
 
 	@Override
 	public void deleteAlumnoProgramaTramite(Integer idApt) {
-		// TODO Auto-generated method stub
+		alumnoProgramaTramiteDAO.deleteAlumnoProgramaTramite(idApt);
 		
 	}
 
