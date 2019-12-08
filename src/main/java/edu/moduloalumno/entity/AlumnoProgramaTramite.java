@@ -10,8 +10,13 @@ public class AlumnoProgramaTramite implements Serializable{
 	private String 	codAlumno;
 	private Integer idPrograma;
 	private String  nomPrograma;
+	private String  siglaPrograma;
     private Integer idTipoTramite;
+    private String  descTipoTramite;
+    private String  siglaTipoTramite;
     private Integer idApb;
+    private String  tipo;
+    private String  beneficioMax;
     private String 	nExpediente;
     private String 	anioExpediente;
     private Date 	fechaExpediente;
@@ -221,6 +226,46 @@ public class AlumnoProgramaTramite implements Serializable{
 
 	public void setNomPrograma(String nomPrograma) {
 		this.nomPrograma = nomPrograma;
+	}
+
+	public String getDescTipoTramite() {
+		return descTipoTramite;
+	}
+
+	public void setDescTipoTramite(String descTipoTramite) {
+		this.descTipoTramite = descTipoTramite;
+	}
+
+	public String getSiglaTipoTramite() {
+		return siglaTipoTramite;
+	}
+
+	public void setSiglaTipoTramite(String siglaTipoTramite) {
+		this.siglaTipoTramite = siglaTipoTramite;
+	}
+
+	public String getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
+	}
+
+	public String getBeneficioMax() {
+		return beneficioMax;
+	}
+
+	public void setBeneficioMax(String beneficioMax) {
+		this.beneficioMax = beneficioMax;
+	}
+
+	public String getSiglaPrograma() {
+		return siglaPrograma;
+	}
+
+	public void setSiglaPrograma(String siglaPrograma) {
+		this.siglaPrograma = siglaPrograma;
 	}
 
     /*@Override

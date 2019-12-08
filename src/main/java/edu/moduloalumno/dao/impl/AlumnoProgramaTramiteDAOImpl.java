@@ -25,8 +25,13 @@ public class AlumnoProgramaTramiteDAOImpl implements IAlumnoProgramaTramiteDAO{
 				+ "        , apt.cod_alumno"
 				+ "        , apt.id_programa"
 				+ "		   , p.nom_programa"
+				+ "        , p.sigla_programa"
 				+ "		   , apt.id_tipotramite"
+				+ "        , t.desc_tipotramite"
+				+ "		   , t.sigla_tipotramite"	
 				+ "		   , apt.id_apb"
+				+ "		   , b.tipo"
+				+ "		   , b.beneficio_max"
 				+ "        , apt.n_expediente"
 				+ "		   , apt.anio_expediente"
 				+ "		   , apt.fecha_expediente"
@@ -46,7 +51,10 @@ public class AlumnoProgramaTramiteDAOImpl implements IAlumnoProgramaTramiteDAO{
 				+ "		   , apt.importe_otros"
 				+ "        , apt.importe_total"
 				+ " FROM alumno_programa_tramite apt"
-				+ " inner join programa p on p.id_programa = apt.id_programa";
+				+ " inner join programa p on p.id_programa = apt.id_programa"
+				+ " inner join tipo_tramite t on t.id_tipotramite = apt.id_tipotramite"
+				+ " inner join alumno_programa_beneficio apb on apb.id_apb = apt.id_apb"
+				+ " inner join beneficio b on b.id_beneficio = apb.id_beneficio";
 		RowMapper<AlumnoProgramaTramite> rowMapper =  new AlumnoProgramaTramiteRowMapper();
 		return this.jdbcTemplate.query(sql, rowMapper);
 	}
@@ -57,8 +65,13 @@ public class AlumnoProgramaTramiteDAOImpl implements IAlumnoProgramaTramiteDAO{
 				+ "        , apt.cod_alumno"
 				+ "        , apt.id_programa"
 				+ "		   , p.nom_programa"
+				+ "        , p.sigla_programa"
 				+ "		   , apt.id_tipotramite"
+				+ "        , t.desc_tipotramite"
+				+ "		   , t.sigla_tipotramite"
 				+ "		   , apt.id_apb"
+				+ "		   , b.tipo"
+				+ "		   , b.beneficio_max"
 				+ "        , apt.n_expediente"
 				+ "		   , apt.anio_expediente"
 				+ "		   , apt.fecha_expediente"
@@ -79,6 +92,9 @@ public class AlumnoProgramaTramiteDAOImpl implements IAlumnoProgramaTramiteDAO{
 				+ "        , apt.importe_total"
 				+ " FROM alumno_programa_tramite apt "
 				+ " inner join programa p on p.id_programa = apt.id_programa "
+				+ " inner join tipo_tramite t on t.id_tipotramite = apt.id_tipotramite"
+				+ " inner join alumno_programa_beneficio apb on apb.id_apb = apt.id_apb"
+				+ " inner join beneficio b on b.id_beneficio = apb.id_beneficio"
 				+ " WHERE apt.id_apt = ?";
 		RowMapper<AlumnoProgramaTramite> rowMapper =  new AlumnoProgramaTramiteRowMapper();
 		return this.jdbcTemplate.query(sql, rowMapper, idApt);
@@ -90,8 +106,13 @@ public class AlumnoProgramaTramiteDAOImpl implements IAlumnoProgramaTramiteDAO{
 				+ "        , apt.cod_alumno"
 				+ "        , apt.id_programa"
 				+ "		   , p.nom_programa"
+				+ "        , p.sigla_programa"
 				+ "		   , apt.id_tipotramite"
+				+ "        , t.desc_tipotramite"
+				+ "		   , t.sigla_tipotramite"
 				+ "		   , apt.id_apb"
+				+ "		   , b.tipo"
+				+ "		   , b.beneficio_max"
 				+ "        , apt.n_expediente"
 				+ "		   , apt.anio_expediente"
 				+ "		   , apt.fecha_expediente"
@@ -112,6 +133,9 @@ public class AlumnoProgramaTramiteDAOImpl implements IAlumnoProgramaTramiteDAO{
 				+ "        , apt.importe_total"
 				+ " FROM alumno_programa_tramite apt "
 				+ " inner join programa p on p.id_programa = apt.id_programa "
+				+ " inner join tipo_tramite t on t.id_tipotramite = apt.id_tipotramite"
+				+ " inner join alumno_programa_beneficio apb on apb.id_apb = apt.id_apb"
+				+ " inner join beneficio b on b.id_beneficio = apb.id_beneficio"
 				+ " WHERE apt.cod_alumno = ?";
 		RowMapper<AlumnoProgramaTramite> rowMapper =  new AlumnoProgramaTramiteRowMapper();
 		return this.jdbcTemplate.query(sql, rowMapper, codAlumno);
